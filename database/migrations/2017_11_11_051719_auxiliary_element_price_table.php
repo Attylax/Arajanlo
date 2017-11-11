@@ -13,7 +13,9 @@ class AuxiliaryElementPriceTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('auxiliary_element_price', function (Blueprint $table){
+
+        });
     }
 
     /**
