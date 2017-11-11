@@ -14,10 +14,11 @@ class AuxiliaryElementPriceTable extends Migration
     public function up()
     {
         Schema::create('aux_element_price', function (Blueprint $table){
-            $table->unsignedInteger("Supplier_aux_element_ID");
+            $table->unsignedInteger("Supplier_aux_element_id");
+            $table->date('date');
+            $table->double("price",10,2);
 
-
-            $table->foreign("Supplier_aux_element_ID")
+            $table->foreign("Supplier_aux_element_id")
                 ->references('id')->on("Supplier_aux_element")
                 ->onDelete('cascade');
 
@@ -31,6 +32,6 @@ class AuxiliaryElementPriceTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop("aux_element_price");
     }
 }
