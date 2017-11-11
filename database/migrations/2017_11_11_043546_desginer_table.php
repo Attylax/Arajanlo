@@ -14,6 +14,14 @@ class DesginerTable extends Migration
     public function up()
     {
         //
+        Schema::create('designer', function (Blueprint $table){
+            $table->string( 'cnp');
+            $table->string('name');
+            $table->date('hired_date');
+            $table->string('manager_cnp');
+
+            $table->foreign('manager_cnp')->references('cnp')->on('desgienr');
+    });
     }
 
     /**
@@ -23,6 +31,6 @@ class DesginerTable extends Migration
      */
     public function down()
     {
-        //
+        //TODo
     }
 }
