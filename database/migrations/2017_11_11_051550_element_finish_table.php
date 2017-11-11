@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FinishTable extends Migration
+class ElementFinishTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,14 @@ class FinishTable extends Migration
     public function up()
     {
         //
-        Schema::create('finish', function (Blueprint $table){
-           $table->integer('id', true, true);
-           $table->string('name');
+        Schema::create('element_finish', function (Blueprint $table){
+            $table->integer('id', true, true);
+            $table->integer('side', false, true);
+            $table->integer('finishID', false, true);
 
-           $table->primary('id');
+            $table->primary('id');
+            $table->foreign('finishID')->references('id')->on('finish');
+
         });
     }
 
@@ -30,6 +33,5 @@ class FinishTable extends Migration
     public function down()
     {
         //
-        Schema::drop('finish');
     }
 }

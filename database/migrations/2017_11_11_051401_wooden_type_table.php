@@ -14,6 +14,13 @@ class WoodenTypeTable extends Migration
     public function up()
     {
         //
+        Schema::create('wooden_type', function (Blueprint $table){
+            $table->integer('id', true, true);
+            $table->string('name');
+            $table->string('unit');
+
+            $table->primary('id');
+        });
     }
 
     /**
@@ -24,5 +31,6 @@ class WoodenTypeTable extends Migration
     public function down()
     {
         //
+        Schema::drop('wooden_type');
     }
 }
