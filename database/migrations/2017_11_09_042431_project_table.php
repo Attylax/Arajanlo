@@ -33,6 +33,7 @@ class ProjectTable extends Migration
     public function down()
     {
         //
+        Schema::drogForeign('designerID');
         Schema::drop('project');
     }
 }
