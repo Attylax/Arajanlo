@@ -23,7 +23,6 @@ class SupplierWoodenTable extends Migration
             $table->double('selling_price', 10, 2);
             $table->integer('quantity', false, true);
 
-            $table->primary('id');
             $table->foreign('supplierID')->references('id')->on('suppliers')->onDelete('cascade');
         });
     }
@@ -36,7 +35,6 @@ class SupplierWoodenTable extends Migration
     public function down()
     {
         //
-        Schema::dropForeign('supplierID');
         Schema::drop('supplier_Wooden');
     }
 }

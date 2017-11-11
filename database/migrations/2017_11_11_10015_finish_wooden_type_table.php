@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ElementFinishTable extends Migration
+class FinishWoodenTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,13 @@ class ElementFinishTable extends Migration
     public function up()
     {
         //
-        Schema::create('element_finish', function (Blueprint $table){
+        Schema::create('finish_wooden_type', function (Blueprint $table){
             $table->integer('id', true, true);
-            $table->integer('side', false, true);
+            $table->integer('wooden_typeID', false, true);
             $table->integer('finishID', false, true);
 
-            $table->primary('id');
-            $table->foreign('finishID')->references('id')->on('finish');
-
+            $table->foreign('wooden_typeID')->references('id')->on('wooden')->onDelete('cascade');
+            $table->foreign("finishID")->references('id')->on('finish')->onDelete('cascade');
         });
     }
 
@@ -32,6 +31,7 @@ class ElementFinishTable extends Migration
      */
     public function down()
     {
-        Schema::drop("element_finish");
+        Schema::drop('finish_wooden_type');
+        //
     }
 }

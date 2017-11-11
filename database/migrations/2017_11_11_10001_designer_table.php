@@ -15,10 +15,10 @@ class DesignerTable extends Migration
     {
         //
         Schema::create('designer', function (Blueprint $table){
-            $table->string( 'cnp');
+            $table->string( 'cnp',14);
             $table->string('name');
             $table->date('hired_date');
-            $table->string('manager_cnp');
+            $table->string('manager_cnp',14);
 
             $table->primary('cnp');
             $table->foreign('manager_cnp')->references('cnp')->on('designer')->onDelete('cascade');
@@ -32,7 +32,6 @@ class DesignerTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign('manager_cnp');
         Schema::drop('designer');
     }
 }

@@ -18,10 +18,9 @@ class ProjectTable extends Migration
             $table->integer('id',true, true);
             $table->string('Name');
             $table->integer('Status', false, true);
-            $table->integer('desginerID', false, true);
+            $table->string('designer_id',14);
 
-            $table->primary('id');
-            $table->foreign('designerID')->references('id')->on('designer');
+            $table->foreign('designer_id')->references('cnp')->on('designer')->onDelete('cascade');
         });
     }
 
@@ -33,7 +32,6 @@ class ProjectTable extends Migration
     public function down()
     {
         //
-        Schema::drogForeign('designerID');
         Schema::drop('project');
     }
 }

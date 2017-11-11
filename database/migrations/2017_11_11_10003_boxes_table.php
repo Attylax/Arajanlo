@@ -19,7 +19,6 @@ class BoxesTable extends Migration
             $table ->integer('ProjectID', false, true);
 
             $table->foreign('ProjectID')->references('id')->on('project')->onDelete('cascade');
-            $table->primary('id');
         });
     }
 
@@ -30,9 +29,7 @@ class BoxesTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropForeign('ProjectID');
-        Schema::drop('designer');
+        Schema::drop('boxes');
 
     }
 }

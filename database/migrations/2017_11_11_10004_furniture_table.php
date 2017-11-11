@@ -16,14 +16,14 @@ class FurnitureTable extends Migration
         //
         Schema::create('Furniture', function (Blueprint $table){
             $table->integer('id', true, true);
-            $table->string('name');
+            $table->string('name', 50);
             $table->integer('BoxID', false, true);
             $table->double('sizeX', 10, 2)->unsigned();
             $table->double('sizeY', 10, 2)->usngined();
             $table->double('sizeZ', 10, 2)->unsigned();
 
-            $table->primary('id');
-            $table->foreign('BoxID')->references('id')->on('Boxes')->onDelete('cascade');
+            $table->foreign('BoxID')->references('id')->on('boxes')->onDelete('cascade');
+            //$table->foreign('designer_id')->references('cnp')->on('designer')->onDelete('cascade');
         });
     }
 
@@ -35,7 +35,6 @@ class FurnitureTable extends Migration
     public function down()
     {
         //
-        Schema::dropForeign('BoxID');
         Schema::drop('Furniture');
     }
 }

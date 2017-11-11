@@ -17,10 +17,10 @@ class AuxiliaryElementTable extends Migration
            $table->increments("id");
            $table->string("name");
            $table->unsignedInteger("quantity");
-           $table->unsignedInteger("butor_id");
+           $table->unsignedInteger("furniture_id");
 
            $table->foreign("furniture_id")
-               ->references("id")->on("furnitures")
+               ->references("id")->on("furniture")
                ->onDelete("cascade");
 
         });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FinishTable extends Migration
+class WoodenTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,11 @@ class FinishTable extends Migration
     public function up()
     {
         //
-        Schema::create('finish', function (Blueprint $table){
-           $table->integer('id', true, true);
-           $table->string('name');
+        Schema::create('wooden_type', function (Blueprint $table){
+            $table->integer('id', true, true);
+            $table->string('name');
+            $table->string('unit');
 
-           $table->primary('id');
         });
     }
 
@@ -30,6 +30,6 @@ class FinishTable extends Migration
     public function down()
     {
         //
-        Schema::drop('finish');
+        Schema::drop('wooden_type');
     }
 }

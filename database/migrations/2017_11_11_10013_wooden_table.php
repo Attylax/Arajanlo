@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SuppliersTable extends Migration
+class WoodenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,14 @@ class SuppliersTable extends Migration
     public function up()
     {
         //
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('wooden', function (Blueprint $table){
             $table->integer('id', true, true);
-            $table->string('Name');
-            $table->string('Location');
+            $table->string('name', 50);
+            $table->integer('Wooden_typeID', false, true);
 
-            $table->primary('id');
-        });
+            $table->foreign('Wooden_typeID')->references('id')->on('wooden_type');
+
+    });
     }
 
     /**
@@ -31,6 +32,6 @@ class SuppliersTable extends Migration
     public function down()
     {
         //
-        Schema::drop('suppliers');
+        Schema::drop('wooden');
     }
 }

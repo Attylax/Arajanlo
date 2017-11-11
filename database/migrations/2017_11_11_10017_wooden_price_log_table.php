@@ -32,7 +32,6 @@ class WoodenPriceLogTable extends Migration
     public function down()
     {
         //
-        Schema::dropForeign('supplier_woodemID');
         Schema::drop('wooden_price_log');
 
     }

@@ -27,7 +27,6 @@ class ElementsTable extends Migration
 
             $table->integer('FinishID', false, true);
 
-            $table->primary('id');
 
             $table->foreign('WoodenID')->references('id')->on('wooden')->onDelete('cascade');
             $table->foreign('FurnitureID')->references('id')->on('furniture')->onDelete('cascade');
@@ -44,9 +43,6 @@ class ElementsTable extends Migration
     public function down()
     {
         //
-        Schema::dropForeign('WoodenID');
-        Schema::dropForeign('FurnitureID');
-        Schema::dropForeign('FinishID');
         Schema::drop('elements');
 
     }
