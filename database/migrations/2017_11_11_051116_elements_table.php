@@ -21,9 +21,9 @@ class ElementsTable extends Migration
 
             $table->integer('FurnitureID', false, true);
             $table->integer('quantity', faelse, true);
-            $table->double('sizeX', false, true);
-            $table->double('sizeY', false, true);
-            $table->double('sizeZ', false, true);
+            $table->double('sizeX', 10, 2);
+            $table->double('sizeY', 10, 2);
+            $table->double('sizeZ', 10, 2);
 
             //TODO
             $table->integer('FinishID', false, true);

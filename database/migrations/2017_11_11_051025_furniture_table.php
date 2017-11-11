@@ -18,9 +18,9 @@ class FurnitureTable extends Migration
             $table->integer('id')->unsigned()->autoincrement();
             $table->string('name');
             $table->integer('BoxID')->unsigned();
-            $table->double('sizeX')->unsigned();
-            $table->double('sizeY')->usngined();
-            $table->double('sizeZ')->unsigned();
+            $table->double('sizeX', 10, 2)->unsigned();
+            $table->double('sizeY', 10, 2)->usngined();
+            $table->double('sizeZ', 10, 2)->unsigned();
 
             $table->primary('id');
             $table->foreign('BoxID')->references('id')->on('Boxes')->onDelete('cascade');
