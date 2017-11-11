@@ -17,9 +17,11 @@ class ProjectTable extends Migration
         Schema::create('project', function (Blueprint $table) {
             $table->integer('id',true, true);
             $table->string('Name');
-            $table->integer('Status')->unsigned();
+            $table->integer('Status', false, true);
+            $table->integer('desginerID', false, true);
 
             $table->primary('id');
+            $table->foreign('designerID')->references('id')->on('designer');
         });
     }
 
