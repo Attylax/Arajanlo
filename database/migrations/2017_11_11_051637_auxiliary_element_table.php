@@ -13,7 +13,17 @@ class AuxiliaryElementTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create("aux_elements", function (Blueprint $table){
+           $table->increments("id");
+           $table->string("name");
+           $table->unsignedInteger("quantity");
+           $table->unsignedInteger("butor_id");
+
+           $table->foreign("furniture_id")
+               ->references("id")->on("furnitures")
+               ->onDelete("cascade");
+
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class AuxiliaryElementTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop("aux_elements");
     }
 }
