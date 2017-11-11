@@ -20,7 +20,7 @@ class ElementsTable extends Migration
             $table->string('name');
 
             $table->integer('FurnitureID', false, true);
-            $table->integer('quantity', faelse, true);
+            $table->integer('quantity', false, true);
             $table->double('sizeX', 10, 2);
             $table->double('sizeY', 10, 2);
             $table->double('sizeZ', 10, 2);

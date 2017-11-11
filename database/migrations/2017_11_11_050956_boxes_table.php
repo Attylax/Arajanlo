@@ -15,8 +15,8 @@ class BoxesTable extends Migration
     {
         //
         Schema::create('boxes', function (Blueprint $table){
-            $table->integer('id')->unsigned()->autoIncrement();
-            $table ->integer('ProjectID')->unsigned();
+            $table->integer('id', true, true);
+            $table ->integer('ProjectID', false, true);
 
             $table->foreign('ProjectID')->references('id')->on('project')->onDelete('cascade');
             $table->primary('id');

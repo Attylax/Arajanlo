@@ -15,9 +15,9 @@ class FurnitureTable extends Migration
     {
         //
         Schema::create('Furniture', function (Blueprint $table){
-            $table->integer('id')->unsigned()->autoincrement();
+            $table->integer('id', true, true);
             $table->string('name');
-            $table->integer('BoxID')->unsigned();
+            $table->integer('BoxID', false, true);
             $table->double('sizeX', 10, 2)->unsigned();
             $table->double('sizeY', 10, 2)->usngined();
             $table->double('sizeZ', 10, 2)->unsigned();
