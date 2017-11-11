@@ -15,9 +15,11 @@ class ProjectTable extends Migration
     {
         //
         Schema::create('project', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unsigned()->autoIncrement();
             $table->string('Name');
-            $table->integer('Status');
+            $table->integer('Status')->unsigned();
+
+            $table->primary('id');
         });
     }
 

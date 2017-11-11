@@ -14,6 +14,13 @@ class BoxesTable extends Migration
     public function up()
     {
         //
+        Schema::create('boxes', function (Blueprint $table){
+            $table->integer('id')->unsigned()->autoIncrement();
+            $table ->integer('ProjectID')->unsigned();
+
+            $table->foreign('ProjectID')->references('id')->on('project')->onDelete('cascade');
+            $table->primary('id');
+        });
     }
 
     /**
@@ -24,5 +31,8 @@ class BoxesTable extends Migration
     public function down()
     {
         //
+        Schema::dropForeign('ProjectID');
+        Schema::drop('designer');
+
     }
 }

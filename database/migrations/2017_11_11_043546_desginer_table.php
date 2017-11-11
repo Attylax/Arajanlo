@@ -20,7 +20,8 @@ class DesginerTable extends Migration
             $table->date('hired_date');
             $table->string('manager_cnp');
 
-            $table->foreign('manager_cnp')->references('cnp')->on('desgienr');
+            $table->foreign('manager_cnp')->references('cnp')->on('desgienr')->onDelete('cascade');
+            $table->primary('cnp');
     });
     }
 
@@ -31,6 +32,7 @@ class DesginerTable extends Migration
      */
     public function down()
     {
-        //TODo
+        Schema::dropForeign('manager_cnp');
+        Schema::drop('designer');
     }
 }

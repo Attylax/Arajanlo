@@ -14,6 +14,15 @@ class WoodenTable extends Migration
     public function up()
     {
         //
+        Schema::create('wooden', function (Blueprint $table){
+            $table->integer('id', true, true);
+            $table->string('name');
+            $table->integer('Wooden_typeID', false, true);
+
+            $table->primary('id');
+            $table->foreign('Wooden-typeID')->references('id')->on('wooden_type');
+
+    });
     }
 
     /**
@@ -24,5 +33,7 @@ class WoodenTable extends Migration
     public function down()
     {
         //
+        Schema::dropForeign('Wooden_typeID');
+        Schema::drop('wooden');
     }
 }

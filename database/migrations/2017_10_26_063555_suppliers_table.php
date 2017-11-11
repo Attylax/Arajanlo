@@ -15,9 +15,11 @@ class SuppliersTable extends Migration
     {
         //
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->autoIncrement();
             $table->string('Name');
             $table->string('Location');
+
+            $table->primary('id');
         });
     }
 

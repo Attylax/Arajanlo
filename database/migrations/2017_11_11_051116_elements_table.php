@@ -14,6 +14,27 @@ class ElementsTable extends Migration
     public function up()
     {
         //
+        Schema::create('elements', function (Blueprint $table){
+            $table->increments('id');
+            $table->integer('WoodenID', false, true);
+            $table->string('name');
+
+            $table->integer('FurnitureID', false, true);
+            $table->integer('quantity', faelse, true);
+            $table->double('sizeX', false, true);
+            $table->double('sizeY', false, true);
+            $table->double('sizeZ', false, true);
+
+            //TODO
+            $table->integer('FinishID', false, true);
+
+            $table->primary('id');
+
+            $table->foreign('WoodenID')->references('id')->on('wooden')->onDelete('cascade');
+            $table->foreign('FurnitureID')->references('id')->on('furniture')->onDelete('cascade');
+            $table->foreign('FinishID')->references('id')->on('finish')->onDelete('cascade');
+
+        });
     }
 
     /**
@@ -24,5 +45,10 @@ class ElementsTable extends Migration
     public function down()
     {
         //
+        Schema::dropForeign('WoodenID');
+        Schema::dropForeign('FurnitureID');
+        Schema::dropForeign('FinishID');
+        Schema::drop('elements');
+
     }
 }
