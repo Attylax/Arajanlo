@@ -25,7 +25,6 @@ class ElementsTable extends Migration
             $table->double('sizeY', 10, 2);
             $table->double('sizeZ', 10, 2);
 
-            //TODO
             $table->integer('FinishID', false, true);
 
             $table->primary('id');

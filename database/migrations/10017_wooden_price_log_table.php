@@ -13,14 +13,14 @@ class WoodenPriceLogTable extends Migration
      */
     public function up()
     {
-        //
+
         Schema::create('wooden_price_log', function (Blueprint $table){
-            $table->integer('suplier_woodenID', false, true);
+            $table->integer('supplier_woodenID', false, true);
             $table->date('change_price_date');
             $table->double('sell_price', 10, 2);
 
-            $table->primary(['suplier_woodenID', 'change_price_date']);
-            $table->foreign('suplier_woodenID')->references('id')->on('suplier_wooden');
+            $table->primary(['supplier_woodenID', 'change_price_date']);
+            $table->foreign('supplier_woodenID')->references('id')->on('supplier_wooden');
         });
     }
 

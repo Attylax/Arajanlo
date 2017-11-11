@@ -32,6 +32,6 @@ class ElementFinishTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop("element_finish");
     }
 }

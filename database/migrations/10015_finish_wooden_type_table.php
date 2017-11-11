@@ -21,6 +21,7 @@ class FinishWoodenTypeTable extends Migration
 
             $table->primary('id');
             $table->foreign('wooden_typeID')->references('id')->on('wooden')->onDelete('cascade');
+            $table->foreign("finishID")->references('id')->on('finish')->onDelete('cascade');
         });
     }
 
