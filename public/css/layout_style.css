@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+body {
+    background-color: #2ca02c;
+}
+
+#header_section {
+    background-color: #2ab27b;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    height: 75px;
+}
+
+#user_login_info {
+    float: right;
+    position: relative;
+    right: 15px;
+    top: 15px;
+}
+
+#main_content {
+    position: absolute;
+    top: 75px;
+    padding: 15px;
+}
+
+#footer_div {
+    position: absolute;
+    bottom: 0px;
+    background-color: #2a2a2a;
+    color: floralwhite;
+    width: 100%;
+    float: left;
+    clear: both;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
