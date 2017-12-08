@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('pageTitle')</title>
+    <title>Arajanlo - @yield('pageTitle')</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('css/layout_style.css') }}"/>
 
