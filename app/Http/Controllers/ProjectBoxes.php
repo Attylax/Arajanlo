@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Project_item;
 
 class ProjectBoxes extends Controller
 {
+    public function manageItemAjax()
+    {
+        return view('my_projects');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,7 @@ class ProjectBoxes extends Controller
      */
     public function index()
     {
-        return view('project_boxes');
+        return view('my_projects');
     }
 
     /**
@@ -34,7 +41,10 @@ class ProjectBoxes extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create = Project_item::create($request->all());
+        //project_item::fi
+        return response()->json($create);
+
     }
 
     /**

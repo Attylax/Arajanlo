@@ -18,4 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('{all?}','ProjectBoxes@index')->where('all','.+');
+
+Route::get('my_projects', 'ProjectBoxes@manageItemAjax');
+Route::resource('item-ajax', 'ProjectBoxes');
+
+//Route::any('{all?}','ProjectBoxes@index')->where('all','.+');

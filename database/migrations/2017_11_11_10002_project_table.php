@@ -19,7 +19,8 @@ class ProjectTable extends Migration
             $table->string('Name');
             $table->integer('Status', false, true);
             $table->string('designer_id',14);
-
+            $table->string('costumer');
+            $table->double('price',10,2);
             $table->foreign('designer_id')->references('cnp')->on('designer')->onDelete('cascade');
         });
     }
