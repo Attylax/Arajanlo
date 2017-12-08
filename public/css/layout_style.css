@@ -8,7 +8,7 @@ body {
     background-color: #2ca02c;
 }
 
-#header_section {
+#header {
     background-color: #2ab27b;
     position: fixed;
     width: 100%;
@@ -25,11 +25,11 @@ body {
 
 #main_content {
     position: absolute;
-    top: 75px;
+    top: 125px;
     padding: 15px;
 }
 
-#footer_div {
+#footer {
     position: absolute;
     bottom: 0px;
     background-color: #2a2a2a;
@@ -40,4 +40,37 @@ body {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+#nav {
+    background-color: #5cb85c;
+    position: fixed;
+    top: 75px;
+    width: 100%;
+    text-align: center;
+    height: 35px;
+}
+
+#navbar_ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar_ul li {
+    float: left;
+    display: inline;
+}
+
+#navbar_ul li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#navbar_ul li a:hover {
+    background-color: #555;
+    color: white;
 }

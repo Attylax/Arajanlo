@@ -22,4 +22,4 @@ Route::get('/', function () {
 Route::get('my_projects', 'ProjectBoxes@manageItemAjax');
 Route::resource('item-ajax', 'ProjectBoxes');
 
-//Route::any('{all?}','ProjectBoxes@index')->where('all','.+');
+Route::any('{all?}', 'Furnitures@index')->where('all', '.+');

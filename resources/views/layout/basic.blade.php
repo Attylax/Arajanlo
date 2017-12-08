@@ -15,6 +15,7 @@
 </head>
 <body>
 @include('layout.header')
+@include('layout.nav')
 <div id="main_content">
     @yield('content')
 </div>
