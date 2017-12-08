@@ -1,36 +1,26 @@
 
-<html>
-    <head>
-        <title>
-            Munkáim
-        </title>
+@extends('layout.basic')
+@section('pageTitle')
+    Munkáim
+@stop
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+@section('javascript')
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        var url = "<?php echo route('item-ajax.index')?>";
+    </script>
+    <script src="/js/item-ajax.js"></script>
+@stop
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+@section('css')
+    <link rel="stylesheet" href="{{ URL::asset('css/my_jobs.css') }}"/>
+@stop
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
-
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-        <script type="text/javascript">
-            var url = "<?php echo route('item-ajax.index')?>";
-        </script>
-
-        <script src="/js/item-ajax.js"></script>
-
-
-    </head>
-    <body>
-        <header>
-            <!-- Pista works on it -->
-        </header>
-
-        <h1>
-
-        </h1>
-
+@section('content')
         <div id="container">
 
             <div class="row">
@@ -97,8 +87,4 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <!-- Pista works on it -->
-        </footer>
-    </body>
-</html>
+@stop
