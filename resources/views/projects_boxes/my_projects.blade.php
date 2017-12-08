@@ -27,21 +27,20 @@
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-right">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">
-                            Create Item
+                            Új elem
                         </button>
                     </div>
                 </div>
             </div>
 
-            <table>
+            <table class="table-bordered" class="table">
                 <thead>
                 <tr>
-                    <th>P név</th>
-                    <th>M név</th>
+                    <th>Projekt név</th>
+                    <th>Megrendelő név</th>
                     <th>Ár</th>
                     <th>Státusz</th>
                     <th>Változtatás</th>
-                    <th width="200px">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,22 +58,22 @@
 
                             <form data-toggle="validator" action="{{ route('item-ajax.store') }}" method="POST">
                                 <div class="form-group">
-                                    <label class="control-label" for="title">P név:</label>
-                                    <input type="text" name="name" class="form-control" data-error="Please enter title." required />
+                                    <label class="control-label" for="title">Project név:</label>
+                                    <input type="text" name="name" class="form-control" data-error="Kérem írja be a projekt nevét." required />
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="title">Costumer:</label>
-                                    <textarea name="costumer" class="form-control" data-error="Please enter description." required></textarea>
+                                    <label class="control-label" for="title">Megrendelő:</label>
+                                    <textarea name="costumer" class="form-control" data-error="Kérem írja be a megrendelő nevét." required></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="title">Price:</label>
-                                    <textarea name="price" class="form-control" data-error="Please enter description." required></textarea>
+                                    <label class="control-label" for="title">Ár:</label>
+                                    <textarea name="price" class="form-control" data-error="BAJJAJJJ" required></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="title">Status:</label>
+                                    <label class="control-label" for="title">Státusz:</label>
                                     <textarea name="Status" class="form-control" data-error="Please enter description." required></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
