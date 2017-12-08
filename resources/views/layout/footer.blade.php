@@ -1,3 +1,3 @@
-<div id="footer_div">
+<div id="footer">
     Created by Attylax & Pista
 </div>

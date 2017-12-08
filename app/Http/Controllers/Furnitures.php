@@ -13,7 +13,7 @@ class Furnitures extends Controller
      */
     public function index()
     {
-        return view('my_projects');
+        return view('Furnitures.furnitures');
     }
 
     /**
