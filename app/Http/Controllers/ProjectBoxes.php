@@ -10,7 +10,7 @@ class ProjectBoxes extends Controller
 {
     public function manageItemAjax()
     {
-        return view('my_projects');
+        return view('projects_boxes.my_projects');
     }
 
     /**
@@ -20,7 +20,7 @@ class ProjectBoxes extends Controller
      */
     public function index()
     {
-        return view('my_projects');
+        return view('projects_boxes.my_projects');
     }
 
     /**
