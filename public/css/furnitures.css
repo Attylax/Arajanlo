@@ -1,0 +1,36 @@
+.furniture_table_element {
+    background-color: #94683d;
+    width: 24em;
+    height: 11em;
+    border-radius: 3em 0.7em 3em 0.7em;
+    border: 1px solid #8b5306;
+}
+
+.furniture_table_element img {
+    position: relative;
+    top: 1em;
+    left: 1em;
+    width: 10em;
+    height: 7em;
+    float: left;
+    margin: 0.2em;
+    border-radius: 0.5em;
+}
+
+.furniture_table_element p {
+    position: relative;
+    top: 1.5em;
+    left: 2.1em;
+}
+
+.furniture_table_element h1 {
+    position: relative;
+    top: 0.4em;
+    left: 1em;
+
+}
+
+.furniture_table_element .furniture_sizes {
+    float: left;
+    clear: both;
+}
