@@ -59,7 +59,8 @@ function manageRow(data) {
     $.each( data, function( key, value ) {
         rows = rows + '<tr>';
         rows = rows + '<td>'+value.title+'</td>';
-        rows = rows + '<td>'+value.description+'</td>';
+        rows = rows + '<td>'+value.costumer+'</td>';
+        rows = rows + '<td>'+value.status+'</td>';
         rows = rows + '<td data-id="'+value.id+'">';
         rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
         rows = rows + '<button class="btn btn-danger remove-item">Delete</button>';
@@ -75,13 +76,16 @@ $(".crud-submit").click(function(e){
     e.preventDefault();
     var form_action = $("#create-item").find("form").attr("action");
     var title = $("#create-item").find("input[name='title']").val();
-    var description = $("#create-item").find("textarea[name='description']").val();
+    var costumer = $("#create-item").find("textarea[name='costumer']").val();
+    var status = $("#create-item").find("textarea[name='Status']").val();
+
+    console.log("szia, meghivodtam");
 
     $.ajax({
         dataType: 'json',
         type:'POST',
         url: form_action,
-        data:{title:title, description:description}
+        data:{name:title, costumer:costumer, status:status}
     }).done(function(data){
         getPageData();
         $(".modal").modal('hide');

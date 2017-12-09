@@ -10,11 +10,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <link rel="text/javascript" href="{{ URL::asset('js/item-ajax.js') }}"/>
+
     <script type="text/javascript">
         var url = "<?php echo route('item-ajax.index')?>";
     </script>
-
-    <link rel="text/javascript" href="{{ URL::asset('js/item-ajax.js') }}"/>
 @stop
 
 @section('css')
@@ -48,6 +49,8 @@
                 </tbody>
             </table>
 
+
+            {{Log::info('szia')}}
             <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -82,4 +85,5 @@
                 </div>
             </div>
         </div>
+        <ul id="pagination" class="pagination-sm"></ul>
 @stop

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Project_item;
+use Log;
 
 class ProjectBoxes extends Controller
 {
@@ -18,9 +19,10 @@ class ProjectBoxes extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('projects_boxes.my_projects');
+        $items = project_item::all();
+        return response()->json($items);
     }
 
     /**
@@ -43,8 +45,9 @@ class ProjectBoxes extends Controller
      */
     public function store(Request $request)
     {
+
         $create = Project_item::create($request->all());
-        //project_item::fi
+        Log::info(response()->json($create));
         return response()->json($create);
 
     }

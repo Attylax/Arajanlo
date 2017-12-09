@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project_item extends Model{
     public $fillable = ['name', 'costumer', 'Status'];
     protected $table = 'project';
+    public $timestamps = false;
 
     public static function create(array $attributes = [])
     {
