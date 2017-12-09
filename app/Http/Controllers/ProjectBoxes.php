@@ -28,9 +28,11 @@ class ProjectBoxes extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $create = Project_item::create($request->all());
+        return response()->json($create);
     }
 
     /**
