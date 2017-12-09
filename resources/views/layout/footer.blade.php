@@ -1,3 +1,3 @@
 <div id="footer">
-    Created by Attylax & Pista
+    <h4>Created by Attylax & Pista</h4>
 </div>
