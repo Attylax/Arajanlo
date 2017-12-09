@@ -75,3 +75,8 @@ body {
     background-color: #555;
     color: white;
 }
+
+#main_content{
+    text-align: center;
+    width: 100%;
+}

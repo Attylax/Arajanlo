@@ -13,7 +13,8 @@
     <script type="text/javascript">
         var url = "<?php echo route('item-ajax.index')?>";
     </script>
-    <script src="/js/item-ajax.js"></script>
+
+    <link rel="text/javascript" href="{{ URL::asset('js/item-ajax.js') }}"/>
 @stop
 
 @section('css')
@@ -65,11 +66,6 @@
                                 <div class="form-group">
                                     <label class="control-label" for="title">Megrendelő:</label>
                                     <textarea name="costumer" class="form-control" data-error="Kérem írja be a megrendelő nevét." required></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="title">Ár:</label>
-                                    <textarea name="price" class="form-control" data-error="BAJJAJJJ" required></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
