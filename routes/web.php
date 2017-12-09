@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 Route::get('my_projects', 'ProjectBoxes@manageItemAjax');
 
-Route::any('{all?}', 'Furnitures@index')->where('all', '.+');
+Route::get('furnitures', 'Furnitures@index');
+Route::get("furniture_items", 'FurnitureItemsController@index');
