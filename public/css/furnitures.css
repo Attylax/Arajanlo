@@ -1,9 +1,23 @@
+.furniture_row {
+
+}
+
 .furniture_table_element {
+    text-decoration: none;
+    color: black;
     background-color: #94683d;
     width: 24em;
     height: 11em;
     border-radius: 3em 0.7em 3em 0.7em;
     border: 1px solid #8b5306;
+    text-align: left;
+    float: left;
+    margin: 1em;
+    margin-right: 4em;
+}
+
+.furniture_table_element:hover {
+    background-color: #5e5e5e;
 }
 
 .furniture_table_element img {

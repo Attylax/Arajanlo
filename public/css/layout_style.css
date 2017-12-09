@@ -14,6 +14,7 @@ body {
     width: 100%;
     text-align: center;
     height: 75px;
+    z-index: 1;
 }
 
 #user_login_info {
@@ -31,7 +32,7 @@ body {
 }
 
 #footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: #2a2a2a;
     color: floralwhite;
@@ -50,6 +51,7 @@ body {
     width: 100%;
     text-align: center;
     height: 35px;
+    z-index: 1;
 }
 
 #navbar_ul {
@@ -76,7 +78,7 @@ body {
     color: white;
 }
 
-#main_content{
+#main_content {
     text-align: center;
     width: 100%;
 }
