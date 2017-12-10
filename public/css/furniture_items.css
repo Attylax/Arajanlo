@@ -1,3 +1,74 @@
 #furniture_items {
     text-align: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #8a6d3b;
+    border-radius: 0.3em;
+    border-bottom: 1px solid #5f452f;
+    border-right: 1px solid #5f452f;
+    min-height: 50em;
+}
+
+#furniture_items_title_section {
+
+}
+
+#furniture_items #furniture_items_title_section img {
+    margin: 1.5em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border-top: 1px solid #5f452f;
+    border-left: 1px solid #5f452f;
+    float: left;
+}
+
+#furniture_items_desc {
+    float: left;
+    margin: 1.5em;
+}
+
+#furniture_items * {
+    margin-bottom: 0.5em;
+}
+
+#furniture_items_table {
+    text-align: center;
+    clear: both;
+}
+
+#furniture_items_table table {
+    background-color: #d4d5aa;
+    border-collapse: collapse;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    display: inline-block;
+    text-align: left;
+}
+
+#furniture_items_table td, #furniture_items_table th {
+    border: 1px solid #d7d194;
+    padding: 0.5em;
+}
+
+#furniture_items_table table tr:nth-child(even) {
+    background-color: #c7c17d;
+}
+
+#furniture_items_table table tr:hover {
+    background-color: #9f9955;
+}
+
+#furniture_items_table table th {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    background-color: #8d8047;
+    color: white;
+    text-align: center;
+}
+
+#other_items_table {
+    background-color: #b2b0a5;
+}
+
+#other_items_table th {
+    background-color: #5c5849;
 }
