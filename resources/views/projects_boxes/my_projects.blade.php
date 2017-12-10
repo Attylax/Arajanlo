@@ -5,17 +5,24 @@
 @stop
 
 @section('javascript')
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    <link rel="text/javascript" href="{{ URL::asset('js/item-ajax.js') }}"/>
+    <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') }}"></script>
 
+    <!--<link rel="stylesheet" type="text/css" href=" {{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css') }}"> -->
     <script type="text/javascript">
         var url = "<?php echo route('item-ajax.index')?>";
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.getScript("{{ URL::asset('js/item-ajax.js') }}");
+        });
+    </script>
+    <!-- <script src = "{{ URL::asset('js/item-ajax.js') }}"></script> -->
+
 @stop
 
 @section('css')
@@ -48,7 +55,7 @@
                 <tbody>
                 </tbody>
             </table>
-
+            <ul id="pagination" class="pagination-sm"></ul>
 
             {{Log::info('szia')}}
             <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -80,10 +87,14 @@
                                     <button type="submit" class="btn crud-submit btn-success">Submit</button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Edit Item Modal -->
+
         </div>
-        <ul id="pagination" class="pagination-sm"></ul>
+
 @stop

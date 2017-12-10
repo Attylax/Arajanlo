@@ -11,6 +11,7 @@ class ProjectBoxes extends Controller
 {
     public function manageItemAjax()
     {
+        Log::info("manageItemAjax()");
         return view('projects_boxes.my_projects');
     }
 
@@ -21,6 +22,7 @@ class ProjectBoxes extends Controller
      */
     public function index(Request $request)
     {
+        Log::info("index()");
         $items = project_item::all();
         return response()->json($items);
     }
@@ -33,6 +35,7 @@ class ProjectBoxes extends Controller
     public function create(Request $request)
     {
         //
+        Log::info("create()");
         $create = Project_item::create($request->all());
         return response()->json($create);
     }
@@ -47,7 +50,7 @@ class ProjectBoxes extends Controller
     {
 
         $create = Project_item::create($request->all());
-        Log::info(response()->json($create));
+        Log::info("store");
         return response()->json($create);
 
     }
@@ -84,6 +87,8 @@ class ProjectBoxes extends Controller
     public function update(Request $request, $id)
     {
         //
+        $edit = Project_item::find($id)->update($request->all());
+        return response()->json($edit);
     }
 
     /**
@@ -94,6 +99,7 @@ class ProjectBoxes extends Controller
      */
     public function destroy($id)
     {
-        //
+        Project_item::find($id)->delete();
+        return response()->json(['done']);
     }
 }
