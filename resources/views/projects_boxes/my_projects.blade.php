@@ -5,7 +5,6 @@
 @stop
 
 @section('javascript')
-
     <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js') }}"></script>
@@ -16,12 +15,12 @@
     <script type="text/javascript">
         var url = "<?php echo route('item-ajax.index')?>";
     </script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         $(document).ready(function() {
             $.getScript("{{ URL::asset('js/item-ajax.js') }}");
         });
-    </script>
-    <!-- <script src = "{{ URL::asset('js/item-ajax.js') }}"></script> -->
+    </script> -->
+     <script src = "{{ URL::asset('js/item-ajax.js') }}"></script>
 
 @stop
 

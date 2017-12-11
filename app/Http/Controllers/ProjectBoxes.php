@@ -35,7 +35,7 @@ class ProjectBoxes extends Controller
     public function create(Request $request)
     {
         //
-        Log::info("create()");
+        Log::info($request->all());
         $create = Project_item::create($request->all());
         return response()->json($create);
     }
@@ -48,11 +48,10 @@ class ProjectBoxes extends Controller
      */
     public function store(Request $request)
     {
-
+        Log::info($request->all());
         $create = Project_item::create($request->all());
-        Log::info("store");
-        return response()->json($create);
 
+        return response()->json($create);
     }
 
     /**

@@ -83,70 +83,72 @@ function manageRow(data) {
 
     $("tbody").html(rows);
 }
+$( document ).ready(function() {
+    /* Create new Item */
+    $(".crud-submit").click(function (e) {
+        e.preventDefault();
+        var form_action = $("#create-item").find("form").attr("action");
+        var title = $("#create-item").find("input[name='name']").val();
+        var costumer = $("#create-item").find("textarea[name='costumer']").val();
+        var status = $("#create-item").find("textarea[name='Status']").val();
 
-/* Create new Item */
-$(".crud-submit").click(function(e){
-    e.preventDefault();
-    var form_action = $("#create-item").find("form").attr("action");
-    var title = $("#create-item").find("input[name='Name']").val();
-    var costumer = $("#create-item").find("textarea[name='costumer']").val();
-    var status = $("#create-item").find("textarea[name='Status']").val();
+        console.log("szia, meghivodtam");
 
-    console.log("szia, meghivodtam");
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            url: form_action,
+            data: {name: title, costumer: costumer, Status: status}
+        }).done(function (data) {
+            getPageData();
+            $(".modal").modal('hide');
+            toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
+        });
 
-    $.ajax({
-        dataType: 'json',
-        type:'POST',
-        url: form_action,
-        data:{name:title, costumer:costumer, status:status}
-    }).done(function(data){
-        getPageData();
-        $(".modal").modal('hide');
-        toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
     });
 
-});
-
-/* Remove Item */
-$("body").on("click",".remove-item",function(){
-    var id = $(this).parent("td").data('id');
-    var c_obj = $(this).parents("tr");
-    $.ajax({
-        dataType: 'json',
-        type:'delete',
-        url: url + '/' + id,
-    }).done(function(data){
-        c_obj.remove();
-        toastr.success('Item Deleted Successfully.', 'Success Alert', {timeOut: 5000});
-        getPageData();
+    /* Remove Item */
+    $("body").on("click", ".remove-item", function () {
+        var id = $(this).parent("td").data('id');
+        var c_obj = $(this).parents("tr");
+        $.ajax({
+            dataType: 'json',
+            type: 'delete',
+            url: url + '/' + id,
+        }).done(function (data) {
+            c_obj.remove();
+            toastr.success('Item Deleted Successfully.', 'Success Alert', {timeOut: 5000});
+            getPageData();
+        });
     });
-});
 
-/* Edit Item */
-$("body").on("click",".edit-item",function(){
-    var id = $(this).parent("td").data('id');
-    var title = $(this).parent("td").prev("td").prev("td").text();
-    var description = $(this).parent("td").prev("td").text();
-    $("#edit-item").find("input[name='title']").val(title);
-    $("#edit-item").find("textarea[name='description']").val(description);
-    $("#edit-item").find("form").attr("action",url + '/' + id);
-});
-
-/* Updated new Item */
-$(".crud-submit-edit").click(function(e){
-    e.preventDefault();
-    var form_action = $("#edit-item").find("form").attr("action");
-    var title = $("#edit-item").find("input[name='title']").val();
-    var description = $("#edit-item").find("textarea[name='description']").val();
-
-    $.ajax({
-        dataType: 'json',
-        type:'PUT',
-        url: form_action,
-        data:{title:title, description:description}
-    }).done(function(data){
-        getPageData();
-        $(".modal").modal('hide');
-        toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+    /* Edit Item */
+    $("body").on("click", ".edit-item", function () {
+        var id = $(this).parent("td").data('id');
+        var title = $(this).parent("td").prev("td").prev("td").text();
+        var description = $(this).parent("td").prev("td").text();
+        $("#edit-item").find("input[name='title']").val(title);
+        $("#edit-item").find("textarea[name='description']").val(description);
+        $("#edit-item").find("form").attr("action", url + '/' + id);
     });
+
+    /* Updated new Item */
+    $(".crud-submit-edit").click(function (e) {
+        e.preventDefault();
+        var form_action = $("#edit-item").find("form").attr("action");
+        var title = $("#edit-item").find("input[name='name']").val();
+        var description = $("#edit-item").find("textarea[name='description']").val();
+
+        $.ajax({
+            dataType: 'json',
+            type: 'PUT',
+            url: form_action,
+            data: {title: title, description: description}
+        }).done(function (data) {
+            getPageData();
+            $(".modal").modal('hide');
+            toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+        });
+    });
+
 });
