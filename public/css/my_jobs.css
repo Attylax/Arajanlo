@@ -2,6 +2,10 @@
     display: none;
 }
 
+#edit-item {
+    display: none;
+}
+
 .pull-right{
     float: right;
 }

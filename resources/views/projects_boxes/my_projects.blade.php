@@ -93,7 +93,40 @@
             </div>
 
             <!-- Edit Item Modal -->
+            <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Edit Item</h4>
+                        </div>
+                        <div class="modal-body">
 
+                            <form data-toggle="validator" action="{{URL::asset('/item-ajax/14')}}" method="put">
+                                <div class="form-group">
+                                    <label class="control-label" for="title">Project név:</label>
+                                    <input type="text" name="name" class="form-control" data-error="Kérem írja be a projekt nevét." required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="title">Megrendelő:</label>
+                                    <textarea name="costumer" class="form-control" data-error="Kérem írja be a megrendelő nevét." required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="title">Státusz:</label>
+                                    <textarea name="Status" class="form-control" data-error="Please enter description." required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success crud-submit-edit">Modósítás</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 @stop

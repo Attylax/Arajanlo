@@ -125,10 +125,12 @@ $( document ).ready(function() {
     /* Edit Item */
     $("body").on("click", ".edit-item", function () {
         var id = $(this).parent("td").data('id');
-        var title = $(this).parent("td").prev("td").prev("td").text();
-        var description = $(this).parent("td").prev("td").text();
-        $("#edit-item").find("input[name='title']").val(title);
-        $("#edit-item").find("textarea[name='description']").val(description);
+        var name = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
+        var status = $(this).parent("td").prev("td").text();
+        var consumer = $(this).parent("td").prev("td").prev("td").prev("td").text();
+        $("#edit-item").find("input[name='name']").val(name);
+        $("#edit-item").find("textarea[name='costumer']").val(consumer);
+        $("#edit-item").find("textarea[name='Status']").val(status);
         $("#edit-item").find("form").attr("action", url + '/' + id);
     });
 
@@ -136,14 +138,15 @@ $( document ).ready(function() {
     $(".crud-submit-edit").click(function (e) {
         e.preventDefault();
         var form_action = $("#edit-item").find("form").attr("action");
-        var title = $("#edit-item").find("input[name='name']").val();
-        var description = $("#edit-item").find("textarea[name='description']").val();
+        var name = $("#edit-item").find("input[name='name']").val();
+        var consumer = $("#edit-item").find("textarea[name='costumer']").val();
+        var status = $("#edit-item").find("textarea[name='Status']").val();
 
         $.ajax({
             dataType: 'json',
             type: 'PUT',
             url: form_action,
-            data: {title: title, description: description}
+            data: {name: name, costumer: consumer, Status: status}
         }).done(function (data) {
             getPageData();
             $(".modal").modal('hide');
