@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\box_item;
 use Illuminate\Http\Request;
+use Log;
 
 class Boxes extends Controller{
-    public function manageItemAjax(){
+    public function manageBoxAjax(){
         return view('projects_boxes.my_projects');
     }
 
@@ -17,6 +18,7 @@ class Boxes extends Controller{
      */
     public function index(Request $request)
     {
+        Log::info("Box");
         $items = box_item::all();
         return response()->json($items);
     }
@@ -29,6 +31,7 @@ class Boxes extends Controller{
     public function create(Request $request)
     {
         //
+        Log::info($request->all());
         $create = box_item::create($request->all());
         return response()->json($create);
     }
@@ -41,6 +44,7 @@ class Boxes extends Controller{
      */
     public function store(Request $request)
     {
+        Log::info($request->all());
         $create = box_item::create($request->all());
 
         return response()->json($create);

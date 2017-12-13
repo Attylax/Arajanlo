@@ -60,9 +60,8 @@
                 <tbody>
                 </tbody>
             </table>
-            <ul id="pagination" class="pagination-sm"></ul>
+            <ul id="pagination" class="pagination-sm" style='display: none;'></ul>
 
-            {{Log::info('szia')}}
             <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

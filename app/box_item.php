@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class box_item extends Model
 {
-    public $fillable = ['name'];
+    public $fillable = ['name', 'ProjectID'];
     protected $table = 'boxes';
     public $timestamps = false;
 

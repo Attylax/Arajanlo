@@ -31,7 +31,7 @@ function manageData() {
                 }
             }
         });
-        console.log("helyes2");
+        //console.log("helyes2");
         manageRow(data);
         is_ajax_fire = 1;
     });
@@ -79,6 +79,7 @@ function manageRow(data) {
 }
 $( document ).ready(function() {
     /* Create new Item */
+
     $(".crud-submit").click(function (e) {
         e.preventDefault();
         var form_action = $("#create-item").find("form").attr("action");
