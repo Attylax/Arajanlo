@@ -14,15 +14,16 @@ class DesignerTable extends Migration
     public function up()
     {
         //
-        Schema::create('designer', function (Blueprint $table){
-            $table->string( 'cnp',14);
+        Schema::create('designer', function (Blueprint $table) {
+            $table->string('cnp', 14);
             $table->string('name');
             $table->date('hired_date');
-            $table->string('manager_cnp',14);
+            $table->string('manager_cnp', 14);
+            $table->string('password', 100);
 
             $table->primary('cnp');
             $table->foreign('manager_cnp')->references('cnp')->on('designer')->onDelete('cascade');
-    });
+        });
     }
 
     /**
