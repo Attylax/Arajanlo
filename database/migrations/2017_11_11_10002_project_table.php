@@ -15,12 +15,12 @@ class ProjectTable extends Migration
     {
         //
         Schema::create('project', function (Blueprint $table) {
-            $table->integer('id',true, true);
+            $table->integer('id', true, true);
             $table->string('Name');
             $table->integer('Status', false, true);
-            $table->string('designer_id',14);
+            $table->string('designer_id', 14);
             $table->string('costumer');
-            $table->double('price',10,2);
+            $table->double('price', 10, 2)->default(0);//nulla
             $table->foreign('designer_id')->references('cnp')->on('designer')->onDelete('cascade');
         });
     }
