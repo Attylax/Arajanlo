@@ -28,6 +28,7 @@ body {
     position: absolute;
     top: 125px;
     padding: 15px;
+    padding-bottom: 2em;
     width: 100%;
 }
 

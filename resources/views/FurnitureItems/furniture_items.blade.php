@@ -18,6 +18,7 @@
             </div>
         </div>
         <div id="furniture_items_table">
+            <h2>Fa alkoto-elemek</h2>
             <table>
                 <tr>
                     <th scope="col" rowspan="2">Elem név</th>
@@ -57,18 +58,22 @@
                 </tr>";
                 }
                 ?>
-            </table>
 
+
+            </table>
+            <h2>Egyeb alkoto-elemek</h2>
             <table id="other_items_table">
                 <tr>
                     <th>Név</th>
                     <th>Mennyiség</th>
+                    <th>Művelet</th>
                 </tr>
 
                 <?php
                 for ($i = 0; $i < 10; ++$i) {
                     echo "<tr>
                     <td>Dummy Dummy Data</td>
+                    <td>Dummy Data</td>
                     <td>Dummy Data</td>
                     </tr>";
                 }
