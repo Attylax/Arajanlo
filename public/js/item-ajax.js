@@ -4,26 +4,19 @@
 
 var page = 1;
 var current_page = 1;
-var total_page = 10;
+var total_page = 1;
 var is_ajax_fire = 0;
 
-
-//var url = "http://localhost:8012/Arajanlo/public/api/item-ajax";
-console.log("meghívodtam");
-console.log(total_page);
 manageData();
 
 /* manage data list */
 function manageData() {
-    console.log("manageData()");
+
     $.ajax({
         dataType: 'json',
         url: url,
         data: {page:page}
     }).done(function(data){
-
-        //total_page = data.last_page;
-        //current_page = data.current_page;
 
         $('#pagination').twbsPagination({
 
@@ -31,9 +24,7 @@ function manageData() {
             visiblePages: current_page,
             next: 'Next',
             prev: 'Prev',
-            //startPage: 1,
             onPageClick: function (event, pageL) {
-                console.log("benne");
                 page = pageL;
                 if(is_ajax_fire != 0){
                     getPageData();
@@ -70,6 +61,9 @@ function manageRow(data) {
     console.log("manageRow()");
     $.each( data, function( key, value ) {
         rows = rows + '<tr>';
+        rows = rows + '<td data-id="'+value.id+'">';
+        rows = rows + '<button data-toggle="modal" class="btn btn-primary box_items">Box</button> ';
+        rows = rows + '</td>';
         rows = rows + '<td>'+value.Name+'</td>';
         rows = rows + '<td>'+value.costumer+'</td>';
         rows = rows + '<td>'+value.price+'</td>';

@@ -17,7 +17,8 @@ class BoxesTable extends Migration
         Schema::create('boxes', function (Blueprint $table){
             $table->integer('id', true, true);
             $table ->integer('ProjectID', false, true);
-
+            $table->string('Name',50);
+            $table->double('price', 10, 2)->default(0);//nulla
             $table->foreign('ProjectID')->references('id')->on('project')->onDelete('cascade');
         });
     }

@@ -15,12 +15,17 @@
     <script type="text/javascript">
         var url = "<?php echo route('item-ajax.index')?>";
     </script>
+
+    <script type="text/javascript">
+        var urlBox = "<?php echo route('item-box.index')?>";
+    </script>
     <!--<script type="text/javascript">
         $(document).ready(function() {
             $.getScript("{{ URL::asset('js/item-ajax.js') }}");
         });
     </script> -->
      <script src = "{{ URL::asset('js/item-ajax.js') }}"></script>
+    <script src = "{{ URL::asset('js/item-box.js') }}"></script>
 
 @stop
 
@@ -44,6 +49,7 @@
             <table class="table-bordered" class="table">
                 <thead>
                 <tr>
+                    <th>Boxok</th>
                     <th>Projekt név</th>
                     <th>Megrendelő név</th>
                     <th>Ár</th>

@@ -15,6 +15,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('my_projects', 'ProjectBoxes@manageItemAjax');
+Route::get('my_projects', 'Boxes@manageItemAjax');
 
 
 Route::get('furnitures', 'Furnitures@index');

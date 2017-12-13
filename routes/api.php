@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('item-ajax', 'ProjectBoxes');
 Route::resource('furniture_item_ajax', 'FurnitureItemsController');
+Route::resource('item-box', 'ProjectBoxes');
+>>>>>>> c3957f950bc50085b1c3d9316918cd4011892107
