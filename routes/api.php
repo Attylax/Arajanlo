@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('item-ajax', 'ProjectBoxes');
+Route::resource('furniture_item_ajax', 'FurnitureItemsController');

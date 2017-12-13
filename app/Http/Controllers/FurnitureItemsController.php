@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\furniture_item;
+use Log;
 
 class FurnitureItemsController extends Controller
 {
+
+    public function manageItemAjax()
+    {
+        return view('FurnitureItems.furniture_items');
+    }
+
     /**
      * Display a listing of the resource.
      *

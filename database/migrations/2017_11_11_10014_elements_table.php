@@ -14,7 +14,7 @@ class ElementsTable extends Migration
     public function up()
     {
         //
-        Schema::create('elements', function (Blueprint $table){
+        Schema::create('elements', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('WoodenID', false, true);
             $table->string('name');
@@ -24,7 +24,7 @@ class ElementsTable extends Migration
             $table->double('sizeX', 10, 2);
             $table->double('sizeY', 10, 2);
             $table->double('sizeZ', 10, 2);
-
+            $table->double('price', 10, 2);
             $table->integer('FinishID', false, true);
 
 

@@ -14,12 +14,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::get('my_projects', 'ProjectBoxes@manageItemAjax');
 
+
 Route::get('furnitures', 'Furnitures@index');
-Route::get("furniture_items", 'FurnitureItemsController@index');
+Route::get("furniture_items", 'FurnitureItemsController@manageItemAjax');
