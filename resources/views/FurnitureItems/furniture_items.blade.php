@@ -47,7 +47,7 @@
                     <th scope="col" colspan="3">Méretek</th>
                     <th scope="col" colspan="2">Felületkezelés</th>
                     <th scope="col" rowspan="2">Mennyiség</th>
-                    <th scope="col" rowspan="2">Ár</th>
+                    <th scope="col" rowspan="2">Ár/db</th>
                     <th scope="col" rowspan="2">Művelet</th>
 
                 </tr>
@@ -107,24 +107,68 @@
                 <div class="modal-body">
 
                     <form data-toggle="validator" action="{{ route('item-ajax.store') }}" method="POST">
+                        {{--Elem neve--}}
                         <div class="form-group">
-                            <label class="control-label" for="title">Project név:</label>
-                            <input type="text" name="name" class="form-control"
-                                   data-error="Kérem írja be a projekt nevét." required/>
+                            <label class="control-label" for="name">Elem név:</label>
+                            <input type="text" name="name" class="popup_text_input"
+                                   data-error="Kérem írja be az elem nevét." required/>
                             <div class="help-block with-errors"></div>
                         </div>
+                        {{--Faanyag--}}
                         <div class="form-group">
-                            <label class="control-label" for="title">Megrendelő:</label>
-                            <textarea name="costumer" class="form-control"
-                                      data-error="Kérem írja be a megrendelő nevét." required></textarea>
+                            <label class="control-label" for="lumber_type">Faanyag:</label>
+                            <select name="lumber_type" class="popup_select_input">
+
+                            </select>
+                        </div>
+                        {{--Méretek--}}
+                        <div class="form-group">
+                            <label class="control-label">Elem méretei(méterben):</label>
+                            <label class="popup_size_label" for="sizeX">X:</label>
+                            <input type="number" step="0.01" min="0" max="50" name="sizeX" class="popup_size_input"
+                                   data-error="Az ertekek 0 es 50 kozott kell legyenek." value="1">
+                            <label class="popup_size_label" for="sizeY">Y:</label>
+                            <input type="number" step="0.01" min="0" max="50" name="sizeY" class="popup_size_input"
+                                   data-error="Az ertekek 0 es 50 kozott kell legyenek." value="1">
+                            <label class="popup_size_label" for="sizeZ">Z:</label>
+                            <input type="number" step="0.01" min="0" max="50" name="sizeZ" class="popup_size_input"
+                                   data-error="Az ertekek 0 es 50 kozott kell legyenek." value="1">
                             <div class="help-block with-errors"></div>
                         </div>
+                        {{--Felületkezelés tipusa és oldalszám--}}
+
                         <div class="form-group">
-                            <label class="control-label" for="title">Státusz:</label>
-                            <textarea name="Status" class="form-control" data-error="Please enter description."
-                                      required></textarea>
+
+                            <label class="control-label" for="finish">Felületkezelés:</label>
+                            <select name="finish" class="popup_select_input">
+
+                            </select>
+                            <label class="control-label" for="title">Oldalak:</label>
+                            <input type="number" step="1" min="1" max="2" name="number_of_sides"
+                                   class="popup_size_input"
+                                   data-error="Az ertekek 1 es 2 kozott kell legyenek." value="1">
                             <div class="help-block with-errors"></div>
                         </div>
+
+                        {{--Mennyiség--}}
+                        <div class="form-group">
+                            <label class="control-label" for="title">Mennyiség:</label>
+                            <input type="number" step="1" min="1" max="1000000" name="quantity"
+                                   class="popup_text_input"
+                                   data-error="Az ertekek 1 es 1000000 kozott kell legyenek." value="1">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        {{--Ár/db--}}
+                        <div class="form-group">
+                            <label class="control-label" for="price">Ár/db:</label>
+
+                            <input type="number" step="0.01" min="0" name="price" class="popup_text_input"
+                                   data-error="Kérem írja be az egysegarat." required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+
                         <div class="form-group">
                             <button type="submit" class="my_button">Submit</button>
                         </div>

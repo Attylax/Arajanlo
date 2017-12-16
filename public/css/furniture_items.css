@@ -93,7 +93,7 @@
 
 .popup_dialog {
     position: relative;
-    background-color: white;
+    background-color: #e8e9d1;
     width: 40em;
     min-height: 25em;
     text-align: left;
@@ -116,7 +116,7 @@
 }
 
 .popup_form {
-    padding: 1em;
+    padding: 1.5em;
 }
 
 .close {
@@ -134,4 +134,30 @@
 
 .close:hover {
     background-color: #5e5e5e;
+}
+
+.form-group {
+    margin-bottom: 0.7em;
+
+}
+
+.form-group input {
+    padding: 0.5em;
+    border-radius: 0.3em;
+    border: 1px solid #cacbb0;
+}
+
+.popup_select_input {
+    padding: 0.5em;
+    border-radius: 0.3em;
+    border: 1px solid #cacbb0;
+    width: 15em;
+}
+
+.popup_size_input {
+    width: 5em;
+}
+
+.popup_size_label {
+    margin-left: 0.5em;
 }
