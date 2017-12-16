@@ -19,6 +19,7 @@
 <div id="main_content">
     @yield('content')
 </div>
+@yield('popups')
 @include('layout.footer')
 </body>
 </html>

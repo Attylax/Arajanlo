@@ -69,18 +69,19 @@ function manageRow(data) {
     console.log("manageRow()");
     $.each(data, function (key, value) {
         rows = rows + '<tr>';
-        rows = rows + '<td>' + value.Name + '</td>';
-        rows = rows + '<td>' + value.costumer + '</td>';
-        rows = rows + '<td>' + value.price + '</td>';
-        rows = rows + '<td>' + value.Status + '</td>';
+        rows = rows + '<td>' + value.name + '</td>';
+
+        rows = rows + '<td>' + value.title + '</td>';
+        rows = rows + '<td>' + value.description + '</td>';
         rows = rows + '<td data-id="' + value.id + '">';
         rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
         rows = rows + '<button class="btn btn-danger remove-item">Delete</button>';
         rows = rows + '</td>';
         rows = rows + '</tr>';
+
     });
 
-    $("tbody").html(rows);
+    //$().html(rows);
 }
 $(document).ready(function () {
     /* Create new Item */
@@ -91,7 +92,7 @@ $(document).ready(function () {
         var costumer = $("#create-item").find("textarea[name='costumer']").val();
         var status = $("#create-item").find("textarea[name='Status']").val();
 
-        console.log("szia, meghivodtam");
+        console.log("create is here");
 
         $.ajax({
             dataType: 'json',
