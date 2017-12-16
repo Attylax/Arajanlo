@@ -120,7 +120,7 @@
                             <select name="lumber_type" class="popup_select_input">
 
                             </select>
-                            {{Form::select('cicus',null,null,array('class' =>'popup_select_input')) }}
+                            {{--{{Form::select('cicus',null,null,array('class' =>'popup_select_input')) }}--}}
                         </div>
                         {{--Méretek--}}
                         <div class="form-group">
