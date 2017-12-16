@@ -120,6 +120,7 @@
                             <select name="lumber_type" class="popup_select_input">
 
                             </select>
+                            {{Form::select('cicus',null,null,array('class' =>'popup_select_input')) }}
                         </div>
                         {{--Méretek--}}
                         <div class="form-group">
@@ -159,9 +160,9 @@
                             <div class="help-block with-errors"></div>
                         </div>
 
-                        {{--Ár/db--}}
+                        {{--Ár/db (leiben)--}}
                         <div class="form-group">
-                            <label class="control-label" for="price">Ár/db:</label>
+                            <label class="control-label" for="price">Ár/db (leiben):</label>
 
                             <input type="number" step="0.01" min="0" name="price" class="popup_text_input"
                                    data-error="Kérem írja be az egysegarat." required>
