@@ -43,7 +43,8 @@ class FurnitureItemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create = furniture_item::create($request->all());
+        return response()->json($create);
     }
 
     /**

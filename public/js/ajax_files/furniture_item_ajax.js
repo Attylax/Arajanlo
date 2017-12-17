@@ -87,12 +87,13 @@ $(document).ready(function () {
     /* Create new Item */
     $(".crud-submit").click(function (e) {
         e.preventDefault();
+
         var form_action = $("#create-item").find("form").attr("action");
         var title = $("#create-item").find("input[name='name']").val();
-        var costumer = $("#create-item").find("textarea[name='costumer']").val();
-        var status = $("#create-item").find("textarea[name='Status']").val();
+        // var costumer = $("#create-item").find("textarea[name='costumer']").val();
+        // var status = $("#create-item").find("textarea[name='Status']").val();
 
-        console.log("create is here");
+        console.log(title + " ez itt");
 
         $.ajax({
             dataType: 'json',
