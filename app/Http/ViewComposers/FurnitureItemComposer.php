@@ -11,6 +11,8 @@ namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 use App\Models\wooden;
+use App\Models\finish;
+
 
 class FurnitureItemComposer
 {
@@ -20,6 +22,7 @@ class FurnitureItemComposer
      * @var UserRepository
      */
     protected $wooden;
+    protected $finish;
 
     /**
      * Create a new profile composer.
@@ -27,10 +30,11 @@ class FurnitureItemComposer
      * @param  UserRepository $users
      * @return void
      */
-    public function __construct(wooden $wooden)
+    public function __construct(wooden $wooden, finish $finish)
     {
         // Dependencies automatically resolved by service container...
         $this->wooden = $wooden;
+        $this->finish = $finish;
     }
 
     /**
@@ -41,6 +45,15 @@ class FurnitureItemComposer
      */
     public function compose(View $view)
     {
-        $view->with('wooden', $this->wooden::all());
+        $view->with('wooden', $this->wooden::where('id', '>=', 0)
+            ->orderBy('name')
+            ->get()
+        );
+
+        $view->with('finish', $this->finish::where('id', '>=', 0)
+            ->orderBy('name')
+            ->get()
+        );
     }
+
 }

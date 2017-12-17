@@ -146,12 +146,16 @@
 
                             <label class="control-label" for="finish">Felületkezelés:</label>
                             <select name="finish" class="popup_select_input">
-
+                                @foreach ($finish as $finish_it)
+                                    <option value="{{$finish_it->id}}">
+                                        {{$finish_it->name}}
+                                    </option>
+                                @endforeach
                             </select>
                             <label class="control-label" for="title">Oldalak:</label>
-                            <input type="number" step="1" min="1" max="2" name="number_of_sides"
+                            <input type="number" step="1" min="0" max="2" name="number_of_sides"
                                    class="popup_size_input"
-                                   data-error="Az ertekek 1 es 2 kozott kell legyenek." value="1">
+                                   data-error="Az ertekek 0 es 2 kozott kell legyenek." value="1">
                             <div class="help-block with-errors"></div>
                         </div>
 
