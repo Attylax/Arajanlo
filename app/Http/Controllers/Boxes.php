@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\box_item;
+use App\Models\box_item;
 use Illuminate\Http\Request;
 use Log;
 

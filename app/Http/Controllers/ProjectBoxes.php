@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Project_item;
+use App\Models\project_item;
 use Log;
 
 class ProjectBoxes extends Controller
