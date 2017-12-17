@@ -11,7 +11,7 @@ class FurnitureItemsController extends Controller
 
     public function manageItemAjax()
     {
-        return view('FurnitureItems.furniture_items');
+        return view('furniture_items.furniture_items');
     }
 
     /**

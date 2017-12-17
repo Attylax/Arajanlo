@@ -118,7 +118,11 @@
                         <div class="form-group">
                             <label class="control-label" for="lumber_type">Faanyag:</label>
                             <select name="lumber_type" class="popup_select_input">
-
+                                @foreach ($wooden as $wood)
+                                    <option value="{{$wood->id}}">
+                                        {{$wood->name}}
+                                    </option>
+                                @endforeach
                             </select>
                             {{--{{Form::select('cicus',null,null,array('class' =>'popup_select_input')) }}--}}
                         </div>
