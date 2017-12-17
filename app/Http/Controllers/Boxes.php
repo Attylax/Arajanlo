@@ -18,8 +18,9 @@ class Boxes extends Controller{
      */
     public function index(Request $request)
     {
-        Log::info("Box");
-        $items = box_item::all();
+        Log::info("box index");
+        Log::info($request);
+        $items = box_item::where("ProjectID", $request["projectID"])->get();
         return response()->json($items);
     }
 

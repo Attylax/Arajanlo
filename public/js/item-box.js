@@ -90,7 +90,8 @@ $(document).ready(function () {
 
             cel1.innerHTML = boxes;
 
-            manageBoxesData();
+            var projectId = $($("#create-box").parent("td").parent("tr").prev("tr")[0].firstChild).data("id");
+            manageBoxesData(projectId);
 
             $(".crud-submit1").click(function (e) {
                 e.preventDefault();
@@ -107,7 +108,7 @@ $(document).ready(function () {
                     url: form_action,
                     data: {name: name, ProjectID: projectId}
                 }).done(function (data) {
-                    getBoxesPageData();
+                    getBoxesPageData(projectId);
                     $(".modal").modal('hide');
                     toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
                 });
@@ -165,12 +166,12 @@ $(document).ready(function () {
 
 });
 
-function manageBoxesData() {
+function manageBoxesData(projectID) {
 
     $.ajax({
         dataType: 'json',
         url: urlBox,
-        data: {page: page}
+        data: {projectID: projectID}
     }).done(function (data) {
         console.log(urlBox);
         $('#pagination1').twbsPagination({
@@ -182,7 +183,7 @@ function manageBoxesData() {
             onPageClick: function (event, pageL) {
                 page = pageL;
                 if (is_box_fire != 0) {
-                    getBoxesPageData();
+                    getBoxesPageData(projectID);
                 }
             }
         });
@@ -192,15 +193,15 @@ function manageBoxesData() {
     });
 }
 
-function getBoxesPageData() {
+function getBoxesPageData(projectID) {
 
     $.ajax({
         dataType: 'json',
         url: urlBox,
-        data: {page: page}
+        data: {projectID: projectID}
     }).done(function (data) {
-        console.log(urlBox);
-        console.log(data);
+        //console.log(urlBox);
+        //console.log(data);
         manageBoxRow(data);
     });
 }
