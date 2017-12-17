@@ -1,7 +1,9 @@
 #furniture_items {
+    position: relative;
+    right: 1%;
     text-align: left;
-    margin-left: 2%;
-    margin-right: 2%;
+    min-width: 95%;
+    display: inline-block;
     background-color: #8a6d3b;
     border-radius: 0.3em;
     border-bottom: 1px solid #5f452f;
@@ -72,3 +74,91 @@
 #other_items_table th {
     background-color: #5c5849;
 }
+
+#create-button-container {
+    padding: 1em;
+}
+
+.popup_main {
+    position: fixed;
+    z-index: 3;
+    display: none;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(128, 124, 109, 0.7);;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.popup_dialog {
+    position: relative;
+    background-color: #e8e9d1;
+    width: 40em;
+    min-height: 25em;
+    text-align: left;
+    display: inline-table;
+    margin-top: 9em;
+    border-radius: 0.5em;
+    border-right: 1px solid #5c5849;
+    border-bottom: 1px solid #5c5849;
+
+}
+
+.popup_header {
+    border-radius: 0.5em 0.5em 0 0;
+    background-color: #c7c17d;
+
+}
+
+.popup_title {
+    padding: 0.5em;
+}
+
+.popup_form {
+    padding: 1.5em;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    margin: 0.2em;
+    padding: 0.1em;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+.close:hover {
+    background-color: #5e5e5e;
+}
+
+.form-group {
+    margin-bottom: 0.7em;
+
+}
+
+.form-group input {
+    padding: 0.5em;
+    border-radius: 0.3em;
+    border: 1px solid #cacbb0;
+}
+
+.popup_select_input {
+    padding: 0.5em;
+    border-radius: 0.3em;
+    border: 1px solid #cacbb0;
+    width: 15em;
+}
+
+.popup_size_input {
+    width: 5em;
+}
+
+.popup_size_label {
+    margin-left: 0.5em;
+}
+

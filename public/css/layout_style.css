@@ -4,8 +4,13 @@
     border: 0px;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     background-color: #2ca02c;
+
 }
 
 #header {
@@ -26,10 +31,11 @@ body {
 
 #main_content {
     position: absolute;
-    top: 125px;
+    top: 6.5em;
     padding: 15px;
     padding-bottom: 2em;
     width: 100%;
+    text-align: center;
 }
 
 #footer {
@@ -82,4 +88,18 @@ body {
 #main_content {
     text-align: center;
     width: 100%;
+}
+
+.my_button {
+    background: linear-gradient(#634b26, #c7c17d);
+    padding: 0.74em;
+    border-radius: 1em;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.my_button:hover {
+    background: linear-gradient(#4f3726, #9f995a);
 }

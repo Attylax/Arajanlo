@@ -7,11 +7,11 @@ var current_page = 1;
 var total_page = 1;
 var is_box_fire = 0;
 
-$( document ).ready(function() {
+$(document).ready(function () {
     $("body").on("click", ".box_items", function () {
         var rowIndex = $(this).parent("td").parent("tr")[0].rowIndex;
 
-        if($($(this)[0].parentNode.parentNode).next("tr")[0] == undefined || $($($(this)[0].parentNode.parentNode).next("tr")[0].firstChild)[0].colSpan != 6) {
+        if ($($(this)[0].parentNode.parentNode).next("tr")[0] == undefined || $($($(this)[0].parentNode.parentNode).next("tr")[0].firstChild)[0].colSpan != 6) {
             var table = $(".table-bordered")[0];
             var row = table.insertRow(rowIndex + 1);
             var cel1 = row.insertCell(0);
@@ -105,7 +105,7 @@ $( document ).ready(function() {
                     dataType: 'json',
                     type: 'POST',
                     url: form_action,
-                    data: {name: name, ProjectID:projectId }
+                    data: {name: name, ProjectID: projectId}
                 }).done(function (data) {
                     getBoxesPageData();
                     $(".modal").modal('hide');
@@ -157,7 +157,7 @@ $( document ).ready(function() {
                 });
             });
 
-        }else{
+        } else {
             var table = $(".table-bordered")[0];
             table.deleteRow(rowIndex + 1);
         }
@@ -170,8 +170,8 @@ function manageBoxesData() {
     $.ajax({
         dataType: 'json',
         url: urlBox,
-        data: {page:page}
-    }).done(function(data){
+        data: {page: page}
+    }).done(function (data) {
         console.log(urlBox);
         $('#pagination1').twbsPagination({
 
@@ -181,7 +181,7 @@ function manageBoxesData() {
             prev: '',
             onPageClick: function (event, pageL) {
                 page = pageL;
-                if(is_box_fire != 0){
+                if (is_box_fire != 0) {
                     getBoxesPageData();
                 }
             }
@@ -197,8 +197,8 @@ function getBoxesPageData() {
     $.ajax({
         dataType: 'json',
         url: urlBox,
-        data: {page:page}
-    }).done(function(data){
+        data: {page: page}
+    }).done(function (data) {
         console.log(urlBox);
         console.log(data);
         manageBoxRow(data);

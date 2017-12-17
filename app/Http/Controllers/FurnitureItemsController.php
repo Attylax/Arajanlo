@@ -11,7 +11,7 @@ class FurnitureItemsController extends Controller
 
     public function manageItemAjax()
     {
-        return view('FurnitureItems.furniture_items');
+        return view('furniture_items.furniture_items');
     }
 
     /**
@@ -21,7 +21,8 @@ class FurnitureItemsController extends Controller
      */
     public function index()
     {
-        return view('FurnitureItems.furniture_items');
+        $items = furniture_item::all();
+        return response()->json($items);
     }
 
     /**
