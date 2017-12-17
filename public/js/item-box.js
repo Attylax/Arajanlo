@@ -29,6 +29,7 @@ $(document).ready(function () {
             <table id='boxes' class='table-bordered' class='table'> \
                         <thead> \
                         <tr> \
+                        <th>Boxokhoz</th> \
                         <th>Box név</th> \
                         <th>Ár</th> \
                         <th>Változtatás</th> \
@@ -209,8 +210,11 @@ function manageBoxRow(data) {
     //console.log("szia");
     $.each(data, function (key, value) {
         rows = rows + '<tr>';
+        rows = rows + '<td data-id="' + value.id + '">';
+        rows = rows + '<button data-toggle="modal" class="btn sendTo"></button> ';
+        rows = rows + '</td>';
         rows = rows + '<td>' + value.Name + '</td>';
-        rows = rows + '<td>' + value.Price + '</td>';
+        rows = rows + '<td>' + value.price + '</td>';
         rows = rows + '<td data-id="' + value.id + '">';
         rows = rows + '<button data-toggle="modal" data-target="#edit-box" class="btn btn-primary edit-box">Edit</button> ';
         rows = rows + '<button class="btn btn-danger remove-box">Delete</button>';
