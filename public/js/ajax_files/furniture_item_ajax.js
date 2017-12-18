@@ -70,18 +70,33 @@ function manageRow(data) {
     $.each(data, function (key, value) {
         rows = rows + '<tr>';
         rows = rows + '<td>' + value.name + '</td>';
+        rows = rows + '<td>' + value.wooden_name + '</td>';
+        rows = rows + '<td>' + value.wooden_type + '</td>';
+        rows = rows + '<td>' + value.sizeX + '</td>';
+        rows = rows + '<td>' + value.sizeY + '</td>';
+        rows = rows + '<td>' + value.sizeZ + '</td>';
+        if (value.finish_name == null) {
+            rows = rows + '<td> - </td>';
+            rows = rows + '<td> - </td>';
+        } else {
+            rows = rows + '<td>' + value.finish_name + '</td>';
+            rows = rows + '<td>' + value.finish_sides + '</td>';
+        }
+        
+        rows = rows + '<td>' + value.quantity + '</td>';
+        rows = rows + '<td>' + value.price + '</td>';
 
-        rows = rows + '<td>' + value.title + '</td>';
-        rows = rows + '<td>' + value.description + '</td>';
-        rows = rows + '<td data-id="' + value.id + '">';
-        rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
-        rows = rows + '<button class="btn btn-danger remove-item">Delete</button>';
-        rows = rows + '</td>';
+
+        // rows = rows + '<td>' + value.description + '</td>';
+        // rows = rows + '<td data-id="' + value.id + '">';
+        // rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
+        // rows = rows + '<button class="btn btn-danger remove-item">Delete</button>';
+        // rows = rows + '</td>';
         rows = rows + '</tr>';
 
     });
 
-    //$().html(rows);
+    $('#furniture_items_table_data').html(rows);
 }
 $(document).ready(function () {
     /* Create new Item */

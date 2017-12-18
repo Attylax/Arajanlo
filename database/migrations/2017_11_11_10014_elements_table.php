@@ -13,7 +13,7 @@ class ElementsTable extends Migration
      */
     public function up()
     {
-        //
+
         Schema::create('elements', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('WoodenID', false, true);
@@ -25,12 +25,12 @@ class ElementsTable extends Migration
             $table->double('sizeY', 10, 2);
             $table->double('sizeZ', 10, 2);
             $table->double('price', 10, 2);
-            $table->integer('FinishID', false, true);
+            $table->integer('FinishID', false, true)->nullable();
 
 
-            $table->foreign('WoodenID')->references('id')->on('wooden')->onDelete('cascade');
+            $table->foreign('WoodenID')->references('id')->on('wooden');
             $table->foreign('FurnitureID')->references('id')->on('furniture')->onDelete('cascade');
-            $table->foreign('FinishID')->references('id')->on('finish')->onDelete('cascade');
+            $table->foreign('FinishID')->references('id')->on('finish');
 
         });
     }

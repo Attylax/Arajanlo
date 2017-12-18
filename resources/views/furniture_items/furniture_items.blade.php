@@ -41,6 +41,7 @@
         <div id="furniture_items_table">
             <h2>Fa alkoto-elemek</h2>
             <table>
+                <thead>
                 <tr>
                     <th scope="col" rowspan="2">Elem név</th>
                     <th scope="col" colspan="2">Faanyag</th>
@@ -60,6 +61,10 @@
                     <th>Megnevezés</th>
                     <th>Oldalak</th>
                 </tr>
+                </thead>
+
+                <tbody id="furniture_items_table_data">
+                </tbody>
 
 
             </table>
@@ -106,7 +111,8 @@
             <div class="popup_form">
                 <div class="modal-body">
 
-                    <form data-toggle="validator" action="{{ route('item-ajax.store') }}" method="POST">
+                    <form data-toggle="validator" action="{{ route('furniture_item_ajax.store') }}"
+                          method="POST">
                         {{--Elem neve--}}
                         <div class="form-group">
                             <label class="control-label" for="name">Elem név:</label>
@@ -116,8 +122,8 @@
                         </div>
                         {{--Faanyag--}}
                         <div class="form-group">
-                            <label class="control-label" for="lumber_type">Faanyag:</label>
-                            <select name="lumber_type" class="popup_select_input">
+                            <label class="control-label" for="WoodenID">Faanyag:</label>
+                            <select name="WoodenID" class="popup_select_input">
                                 @foreach ($wooden as $wood)
                                     <option value="{{$wood->id}}">
                                         {{$wood->name}}
@@ -144,8 +150,8 @@
 
                         <div class="form-group">
 
-                            <label class="control-label" for="finish">Felületkezelés:</label>
-                            <select name="finish" class="popup_select_input">
+                            <label class="control-label" for="Element_finishID">Felületkezelés:</label>
+                            <select name="Element_finishID" class="popup_select_input">
                                 @foreach ($finish as $finish_it)
                                     <option value="{{$finish_it->id}}">
                                         {{$finish_it->name}}
@@ -155,7 +161,7 @@
                             <label class="control-label" for="title">Oldalak:</label>
                             <input type="number" step="1" min="0" max="2" name="number_of_sides"
                                    class="popup_size_input"
-                                   data-error="Az ertekek 0 es 2 kozott kell legyenek." value="1">
+                                   data-error="Az ertekek 0 es 2 kozott kell legyenek." value="0">
                             <div class="help-block with-errors"></div>
                         </div>
 
