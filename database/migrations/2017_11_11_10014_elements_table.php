@@ -28,9 +28,9 @@ class ElementsTable extends Migration
             $table->integer('FinishID', false, true)->nullable();
 
 
-            $table->foreign('WoodenID')->references('id')->on('wooden');
+            $table->foreign('WoodenID')->references('id')->on('wooden')->onDelete('cascade');
             $table->foreign('FurnitureID')->references('id')->on('furniture')->onDelete('cascade');
-            $table->foreign('FinishID')->references('id')->on('finish');
+            $table->foreign('FinishID')->references('id')->on('finish')->onDelete('cascade');
 
         });
     }
