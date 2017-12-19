@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use Illuminate\Http\Request;
+use App\Models\furniture;
 
 class Furnitures extends Controller
 {
+
+    public function manageItemAjax(){
+        Log::info("Furnitures manageItemAjax");
+        return view('Furnitures.furnitures');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('Furnitures.furnitures');
+        $items = furniture::all();
+        Log::info("index");
+        Log::info($items);
+        return response()->json($items);
     }
 
     /**

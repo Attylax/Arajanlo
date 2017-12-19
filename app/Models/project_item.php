@@ -9,7 +9,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Log;
 class Project_item extends Model{
     public $fillable = ['name', 'costumer', 'Status'];
     protected $table = 'project';
@@ -17,8 +17,10 @@ class Project_item extends Model{
 
     public static function create(array $attributes = [])
     {
-        $model = static::query()->create($attributes);
 
+        $model = static::query()->create($attributes);
+        Log::info("Model project");
+        Log:info($model);
         // ...
 
         return $model;
