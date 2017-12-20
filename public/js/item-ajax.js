@@ -66,7 +66,7 @@ function manageRow(data) {
         rows = rows + '</td>';
         rows = rows + '<td>'+value.Name+'</td>';
         rows = rows + '<td>'+value.costumer+'</td>';
-        rows = rows + '<td>'+value.price+'</td>';
+        rows = rows + '<td>'+value.price+' € </td>';
         rows = rows + '<td>'+value.Status+'</td>';
         rows = rows + '<td data-id="'+value.id+'">';
         rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';

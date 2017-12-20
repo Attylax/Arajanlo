@@ -9,8 +9,7 @@ var is_ajax_fire = 0;
 
 
 //var url = "http://localhost:8012/Arajanlo/public/api/item-ajax";
-console.log("meghívodtam");
-console.log(total_page);
+
 manageData();
 
 /* manage data list */
@@ -22,15 +21,13 @@ function manageData() {
         data: {page: page}
     }).done(function (data) {
 
-        //total_page = data.last_page;
-        //current_page = data.current_page;
         $('#pagination').twbsPagination({
 
             totalPages: total_page,
             visiblePages: current_page,
             next: 'Next',
             prev: 'Prev',
-            //startPage: 1,
+
             onPageClick: function (event, pageL) {
                 console.log("benne");
                 page = pageL;
@@ -104,17 +101,19 @@ $(document).ready(function () {
         e.preventDefault();
 
         var form_action = $("#create-item").find("form").attr("action");
-        var title = $("#create-item").find("input[name='name']").val();
-        // var costumer = $("#create-item").find("textarea[name='costumer']").val();
-        // var status = $("#create-item").find("textarea[name='Status']").val();
-
-        console.log(title + " ez itt");
-
+        var name = $("#create-item").find("input[name='name']").val();
+        var woodenID = $("#create-item").find("select[name='WoodenID']").val();
+        var sizeX = $("#create-item").find("input[name='sizeX']").val();
+        var sizeY = $("#create-item").find("input[name='sizeY']").val();
+        var sizeZ = $("#create-item").find("input[name='sizeZ']").val();
+        var finishID = $("#create-item").find("select[name='Element_finishID']").val();
+        var numberOfSides = $("#create-item").find("input[name='number_of_sides']").val();
+        var quantity = $("#create-item").find("input[name='quantity']").val();
         $.ajax({
             dataType: 'json',
             type: 'POST',
             url: form_action,
-            data: {name: title, costumer: costumer, Status: status}
+            data: {name: name, FurnitureID: furnitureID, quantity: quantity, sizeX: sizeX, sizeY: sizeY, sizeZ: sizeZ, FinishID: finishID, WoodenID: woodenID}
         }).done(function (data) {
             getPageData();
             $(".modal").modal('hide');

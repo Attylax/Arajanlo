@@ -212,12 +212,12 @@ function manageBoxRow(data) {
     $.each(data, function (key, value) {
         rows = rows + '<tr>';
         rows = rows + '<td data-id="' + value.id + '">';
-        rows = rows + '<button data-toggle="modal" class="btn sendTo"></button> ';
+        rows = rows + '<a href="http://localhost:8012/Arajanlo/public/furnitures?boxID=' + value.id + '" ><button data-toggle="modal" class="btn sendTo"></button>  </a>';
         rows = rows + '</td>';
         rows = rows + '<td>' + value.Name + '</td>';
-        rows = rows + '<td>' + value.price + '</td>';
+        rows = rows + '<td>' + value.price + ' €</td>';
         rows = rows + '<td data-id="' + value.id + '">';
-        rows = rows + '<button data-toggle="modal" data-target="#edit-box" class="btn btn-primary edit-box">Edit</button> ';
+        rows = rows + '<button data-toggle="modal" data-target="#edit-box" class="btn btn-primary edit-box">Edit</button>';
         rows = rows + '<button class="btn btn-danger remove-box">Delete</button>';
         rows = rows + '</td>';
         rows = rows + '</tr>';

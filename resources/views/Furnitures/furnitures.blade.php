@@ -17,6 +17,7 @@
 
     <script type="text/javascript">
         var url = "<?php echo route('furniture-ajax.index')?>";
+        var boxID = "<?php echo $_GET['boxID']?>"
     </script>
 
     <script src="{{ URL::asset('js/furniture-ajax.js') }}"></script>
@@ -27,9 +28,9 @@
 @stop
 
 @section('content')
-    {{\Illuminate\Support\Facades\Input::get('szia')}}
+
     <div class="furniture_row">
-        <a href="#" class="furniture_table_element">
+        <!--<a href="#" class="furniture_table_element">
             <img src="{{asset('Images/dummy_image.jpg')}}">
             <h1>Tárgy neve</h1>
             <p>Ar: 523 LEI</p>
@@ -40,7 +41,7 @@
             <h1>Tárgy neve</h1>
             <p>Ar: 523 LEI</p>
             <p class="furniture_sizes">Méretek: X:421 m | Y:659 m | Z:7 m</p>
-        </a>
+        </a> -->
     </div>
 
 @stop

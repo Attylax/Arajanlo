@@ -17,6 +17,7 @@
 
     <script type="text/javascript">
         var url = "<?php echo route('furniture_item_ajax.index')?>";
+        var furnitureID = "<?php echo $_GET['furnitureID']?>"
     </script>
 
     <script src="{{ URL::asset('js/ajax_files/furniture_item_ajax.js') }}"></script>
@@ -30,11 +31,11 @@
 @section('content')
     <div id="furniture_items">
         <div id="furniture_items_title_section">
-            <img src="{{asset('Images/dummy_image.jpg')}}" style="width: 15em;height: 11em">
+            <img src="{{asset('Images/furniture.jpg')}}" style="width: 15em;height: 11em">
             <div id="furniture_items_desc">
-                <h1>Butor Nev</h1>
-                <p>Ar: 523 LEI</p>
-                <p>Méretek: X:421 m | Y:659 m | Z:7 m</p>
+                <h1>{{ \App\Models\furniture::where("id", $_GET['furnitureID'])->get()[0]['name']  }}</h1>
+                <p>Ar: {{\App\Models\furniture::where("id", $_GET['furnitureID'])->get()[0]['Price'] }} €</p>
+                <p>Méretek: X:{{\App\Models\furniture::where("id", $_GET['furnitureID'])->get()[0]['sizeX'] }} mm | Y:{{\App\Models\furniture::where("id", $_GET['furnitureID'])->get()[0]['sizeY'] }} mm | Z:{{\App\Models\furniture::where("id", $_GET['furnitureID'])->get()[0]['sizeZ'] }} mm</p>
             </div>
         </div>
 
@@ -48,7 +49,7 @@
                     <th scope="col" colspan="3">Méretek</th>
                     <th scope="col" colspan="2">Felületkezelés</th>
                     <th scope="col" rowspan="2">Mennyiség</th>
-                    <th scope="col" rowspan="2">Ár/db</th>
+                    <th scope="col" rowspan="2">Ár</th>
                     <th scope="col" rowspan="2">Művelet</th>
 
                 </tr>
@@ -136,13 +137,13 @@
                         <div class="form-group">
                             <label class="control-label">Elem méretei(méterben):</label>
                             <label class="popup_size_label" for="sizeX">X:</label>
-                            <input type="number" step="0.01" min="0" max="50" name="sizeX" class="popup_size_input"
+                            <input type="number" step="1" min="0" max="50000" name="sizeX" class="popup_size_input"
                                    data-error="Az ertekek 0 es 50 kozott kell legyenek." value="1">
                             <label class="popup_size_label" for="sizeY">Y:</label>
-                            <input type="number" step="0.01" min="0" max="50" name="sizeY" class="popup_size_input"
+                            <input type="number" step="1" min="0" max="50000" name="sizeY" class="popup_size_input"
                                    data-error="Az ertekek 0 es 50 kozott kell legyenek." value="1">
                             <label class="popup_size_label" for="sizeZ">Z:</label>
-                            <input type="number" step="0.01" min="0" max="50" name="sizeZ" class="popup_size_input"
+                            <input type="number" step="1" min="0" max="50000" name="sizeZ" class="popup_size_input"
                                    data-error="Az ertekek 0 es 50 kozott kell legyenek." value="1">
                             <div class="help-block with-errors"></div>
                         </div>
@@ -175,17 +176,17 @@
                         </div>
 
                         {{--Ár/db (leiben)--}}
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label class="control-label" for="price">Ár/db (leiben):</label>
 
                             <input type="number" step="0.01" min="0" name="price" class="popup_text_input"
                                    data-error="Kérem írja be az egysegarat." required>
                             <div class="help-block with-errors"></div>
-                        </div>
+                        </div>-->
 
 
                         <div class="form-group">
-                            <button type="submit" class="my_button">Submit</button>
+                            <button type="submit" class="my_button crud-submit">Submit</button>
                         </div>
                     </form>
 

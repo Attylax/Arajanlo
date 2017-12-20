@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\box_item;
+use App\Models\furniture;
+use App\Models\WoodenSupplier;
 use Illuminate\Http\Request;
 use App\Models\furniture_item;
 use App\Models\element_finish;
@@ -42,7 +45,7 @@ class FurnitureItemsController extends Controller
                 'finish.name as finish_name'
             )->get();
         //$items = furniture_item::all();
-        Log::info($items->all());
+        //Log::info($items->all());
         return response()->json($items);
     }
 
@@ -87,8 +90,35 @@ class FurnitureItemsController extends Controller
             $request->request->add(['FinishID' => null]);
         }
 
-        $request->request->add(['FurnitureID' => 1]);
-        Log::info($request->all());
+        $request->request->add(['FurnitureID' =>  $request->get('FurnitureID')]);
+
+
+        $sellingPrice = WoodenSupplier::where('WoodenID', $request->get('WoodenID'))->orderBy('import_date', 'desc')->take(1)->get()[0]['selling_price'];
+
+        $Price = $request->get('sizeX') *  $request->get('sizeY')/1000 * $sellingPrice *  $request->get('quantity');
+
+
+        $request->request->add(['price' =>  $Price]);
+
+
+        $furniture_price = furniture::where('id',  $request->get('FurnitureID'))->get()[0]['Price'];
+        $furniture_price = $furniture_price + $Price;
+
+        furniture::where('id',  $request->get('FurnitureID'))->update(['Price' => $furniture_price]);
+
+        $boxId = furniture::where('id',  $request->get('FurnitureID'))->get()[0]['BoxID'];
+        $box_price = box_item::where('id', $boxId)->get()[0]['Price'];
+
+        $box_price = $box_price + $Price;
+
+
+        box_item::where('id', $boxId)->update(['Price' => $box_price]);
+
+        //Log::info('Szamolas');
+        //Log::info($request->get('WoodenID'));
+        //Log::info(WoodenSupplier::where('WoodenID', $request->get('WoodenID'))->orderBy('import_date', 'desc')->take(1)->get());
+
+        //Log::info($request->all());
         $create = furniture_item::create($request->all());
         return response()->json($create);
     }

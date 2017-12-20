@@ -19,7 +19,7 @@ function manageData() {
     $.ajax({
         dataType: 'json',
         url: url,
-        data: {page:page}
+        data: {page:page, boxID: boxID}
     }).done(function(data){
 
         $('#pagination').twbsPagination({
@@ -65,11 +65,11 @@ function manageRow(data) {
     console.log("manageRow()");
     console.log(data);
     $.each( data, function( key, value ) {
-        rows += "<a href=\"#\" class=\"furniture_table_element\"> \
-            <img src= " + value.Path + "> \
+        rows += "<a href=\"http://localhost:8012/Arajanlo/public/furniture_items?furnitureID=" + value.id +" \" class=\"furniture_table_element\"> \
+            <img src='http://localhost:8012/Arajanlo/public/Images/furniture.jpg'> \
             <h1> " + value.name + "</h1> \
-        <p> Ar:" + value.Price + " </p> \
-        <p class=\"furniture_sizes\">Méretek: X:" +  value.sizeX  + " m | Y: " + value.sizeY + " m | Z: " + value.sizeZ  + "m</p>\
+        <p> Ar:" + value.Price + " €</p> \
+        <p class=\"furniture_sizes\">Méretek: X:" +  value.sizeX  + " mm | Y: " + value.sizeY + " mm | Z: " + value.sizeZ  + "mm</p>\
         </a>";
     });
     console.log(rows);

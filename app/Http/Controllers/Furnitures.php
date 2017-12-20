@@ -21,9 +21,7 @@ class Furnitures extends Controller
      */
     public function index(Request $request)
     {
-        $items = furniture::all();
-        Log::info("index");
-        Log::info($items);
+        $items = furniture::where('BoxID', $request['boxID'])->get();
         return response()->json($items);
     }
 
