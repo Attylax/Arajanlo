@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\project_item;
 use App\Models\box_item;
 use App\Models\furniture;
 use App\Models\WoodenSupplier;
@@ -23,7 +24,7 @@ class FurnitureItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
 
@@ -32,6 +33,7 @@ class FurnitureItemsController extends Controller
             ->join('wooden_type', 'wooden.Wooden_typeID', '=', 'wooden_type.id')
             ->leftJoin('element_finish', 'elements.FinishID', '=', 'element_finish.id')
             ->leftJoin('finish', 'element_finish.finishID', '=', 'finish.id')
+            ->where('FurnitureID', $request->get('FurnitureID'))
             ->select(
                 'elements.name',
                 'elements.quantity',
@@ -107,13 +109,19 @@ class FurnitureItemsController extends Controller
         furniture::where('id',  $request->get('FurnitureID'))->update(['Price' => $furniture_price]);
 
         $boxId = furniture::where('id',  $request->get('FurnitureID'))->get()[0]['BoxID'];
-        $box_price = box_item::where('id', $boxId)->get()[0]['Price'];
+        $box_price = box_item::where('id', $boxId)->get()[0]['price'];
 
         $box_price = $box_price + $Price;
 
-
         box_item::where('id', $boxId)->update(['Price' => $box_price]);
 
+
+        $projectId = box_item::where('id', $boxId)->get()[0]['ProjectID'];
+        $project_price = project_item::where('id', $projectId)->get()[0]['price'];
+
+        $project_price = $project_price + $Price;
+
+        project_item::where('id', $projectId)->update(['Price' => $project_price]);
         //Log::info('Szamolas');
         //Log::info($request->get('WoodenID'));
         //Log::info(WoodenSupplier::where('WoodenID', $request->get('WoodenID'))->orderBy('import_date', 'desc')->take(1)->get());

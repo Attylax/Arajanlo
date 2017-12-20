@@ -21,6 +21,7 @@ class Furnitures extends Controller
      */
     public function index(Request $request)
     {
+
         $items = furniture::where('BoxID', $request['boxID'])->get();
         return response()->json($items);
     }
@@ -41,9 +42,10 @@ class Furnitures extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        Log::info($request);
+        $create = furniture::create($request->all());
+        return response()->json($create);
     }
 
     /**

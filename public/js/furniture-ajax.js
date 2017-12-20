@@ -7,15 +7,10 @@ var current_page = 1;
 var total_page = 1;
 var is_ajax_fire = 0;
 
-console.log("ajax");
-
 manageData();
-
-console.log("kesz");
 
 /* manage data list */
 function manageData() {
-    console.log("meghivodtam");
     $.ajax({
         dataType: 'json',
         url: url,
@@ -53,7 +48,7 @@ function getPageData() {
     $.ajax({
         dataType: 'json',
         url: url,
-        data: {page:page}
+        data: {page:page, boxID: boxID}
     }).done(function(data){
         manageRow(data);
     });
@@ -75,3 +70,33 @@ function manageRow(data) {
     console.log(rows);
     $(".furniture_row").html(rows);
 }
+
+$( document ).ready(function() {
+    /* Create new Item */
+
+    $(".crud-submit").click(function (e) {
+        e.preventDefault();
+        var form_action = $("#create-item").find("form").attr("action");
+        var name = $("#create-item").find("input[name='name']").val();
+        var sizeX = $("#create-item").find("input[name='sizeX']").val();
+        var sizeY = $("#create-item").find("input[name='sizeY']").val();
+        var sizeZ = $("#create-item").find("input[name='sizeZ']").val();
+
+        console.log("szia, meghivodtam");
+
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            url: form_action,
+            data: {name: name, sizeX: sizeX, sizeY: sizeY, sizeZ: sizeZ, BoxID: boxID}
+        }).done(function (data) {
+            getPageData();
+            $(".modal").modal('hide');
+            toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
+        });
+
+    });
+
+
+
+});

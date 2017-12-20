@@ -18,7 +18,7 @@ function manageData() {
     $.ajax({
         dataType: 'json',
         url: url,
-        data: {page: page}
+        data: {page: page, FurnitureID: furnitureID}
     }).done(function (data) {
 
         $('#pagination').twbsPagination({
@@ -54,7 +54,7 @@ function getPageData() {
     $.ajax({
         dataType: 'json',
         url: url,
-        data: {page: page}
+        data: {page: page, FurnitureID: furnitureID}
     }).done(function (data) {
         manageRow(data);
     });
